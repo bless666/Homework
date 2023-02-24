@@ -1,0 +1,65 @@
+﻿@model BlogPost
+@{
+    Layout = null;
+    ViewBag.Title = "ReadOn";
+}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/css/bootstrap-themed.min.css" type="text/css" />
+    <title>Sitecore Powered Blog</title>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="jumbotron text-white bg-primary">
+                <a href="@Url.Action("Index", "Home")" style="color:white"><h1 class="display-3">Sitecore Powered Blog</h1></a>
+                <p class="lead"><a href="https://jss.sitecore.com/" class="text-light">Sitecore</a> promises to be the way of the future.</p>
+            </div>
+        </div><!-- /.container -->
+    </header>
+
+
+    <main role="main" class="container blog-post-detail">
+        <div class="row">
+            <div class="blog-post-detail-card card col-lg-12">
+                <img class="card-img-top" src="~/Content/Images/tech.jpg" alt="Card image cap">
+                <div class="card-body bg-light">
+                    <strong class="d-inline-block mb-2 text-success">Design</strong>
+                    <h3 class="card-title">Long blog post title</h3>
+                    <div class="mb-1 text-muted">Dec 11, 2018</div>
+                    <p>
+                       @Model.LongDescption
+                    </p>
+                    <div class="blog-detail-tag-list">
+                        <span class="read-more-heading">Read more: </span>
+                        <a class="btn btn-info" href="#" role="button">Tag</a>
+                        <a class="btn btn-info" href="#" role="button">Super Extra Long Tag</a>
+                        <a class="btn btn-info" href="#" role="button">Extra Long Tag</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <Footer>
+        <div class="container">
+            <div class="text-white bg-primary">
+                <p class="lead">Copyright 2023</p>
+            </div>
+        </div>
+    </Footer>
+
+</body>
+
+</html>
+

@@ -1,0 +1,95 @@
+﻿@model IEnumerable<BlogPost>
+@{ Layout = null;}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="~/Content/css/bootstrap-themed.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/Content/css/blogsite.css" type="text/css" />
+
+    <title>Sitecore Powered Blog</title>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <div class="jumbotron text-white bg-primary">
+                <h1 class="display-3">@ViewBag.Title</h1>
+                <p class="lead"><a href="https://jss.sitecore.com/" class="text-light">Sitecore</a> promises to be the way of the future.</p>
+            </div>
+        </div><!-- /.container -->
+    </header>
+
+
+    <main role="main" class="container blog-posts">
+
+        <div class="main-search">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search this blog">
+                <div class="input-group-append">
+
+                    <button type="button" class="btn btn-dark">Search</button>
+
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+
+        <div class="row">
+            <!-- Begin Repeating Elements Area -->
+            <!-- Begin Repeating Element-->
+
+            @foreach (var item in Model)
+            {
+
+                <div class="blog-post-card card col-lg-4 col-md-6">
+                    @if (item.ImageURL == "~/Content/Images/developer.jpg")
+                    {
+                        <img class="card-img-top" src="~/Content/Images/developer.jpg" alt="Card image cap">
+                    }
+                    else if (item.ImageURL == "~/Content/Images/animals.jpg")
+                    {
+                        <img class="card-img-top" src="~/Content/Images/animals.jpg" alt="Card image cap">
+                    }
+                    else if (item.ImageURL == "~/Content/Images/people.jpg")
+                    {
+                        <img class="card-img-top" src="~/Content/Images/people.jpg" alt="Card image cap">
+                    }
+                    else if (item.ImageURL == "~/Content/Images/arch.jpg")
+                    {
+                        <img class="card-img-top" src="~/Content/Images/arch.jpg" alt="Card image cap">
+                    }
+                    else if (item.ImageURL == "~/Content/Images/366.jpg")
+                    {
+                        <img class="card-img-top" src="~/Content/Images/366.jpg" alt="Card image cap">
+                    }
+                    <div class="card-body bg-light">
+                        <strong class="d-inline-block mb-2 text-success">Design</strong>
+                        <h3 class="card-title">@item.Title</h3>
+                        <div class="mb-1 text-muted">Dec 11, 2018</div>
+                        <p>@item.ShortDescription</p>
+                        <a href="@Url.Action("ReadOn", "Home", new { Id = item.Id} )" class="btn btn-warning btn-block">Read on</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </main>
+
+    <Footer>
+        <div class="container">
+            <div class="text-white bg-primary">
+                <p class="lead">Copyright @DateTime.Now.Year</p>
+            </div>
+        </div>
+    </Footer>
+
+</body>
+</html>
